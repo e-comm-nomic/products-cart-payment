@@ -65,18 +65,31 @@ router.post('/', (req, res) => {
 //UPDATE A PRODUCT
 router.put('/:id', (req, res) => {
   let id = req.params.id;
-  const { product_name, price, description, stock } = req.body;
-  const qr = `UPDATE PRODUCTS SET product_name='${product_name}',price=${price},description='${description}',stock=${stock} WHERE product_id=${id}`;
-  con.query(qr, (err, result) => {
-    if (err) {
-      return res.json({
-        message: 'Failed to update',
+  const {
+    productName,
+    productPrice,
+    productDesc,
+    productStock,
+    imageUrl,
+  } = req.body;
+  const product_name = productName;
+  const price = productPrice;
+  const description = productDesc;
+  const stock = productStock;
+  const imageurl = imageUrl;
+  con.query(
+    `UPDATE PRODUCTS SET product_name='${product_name}',price=${price},description='${description}',stock=${stock},imageurl='${imageurl}' WHERE product_id=${id}`,
+    (err, result) => {
+      if (err) {
+        return res.json({
+          message: 'Failed to update',
+        });
+      }
+      res.json({
+        success: 'Successfully updated the product',
       });
     }
-    res.json({
-      success: 'Successfully updated the product',
-    });
-  });
+  );
 });
 
 // DELETE A PRODUCT
