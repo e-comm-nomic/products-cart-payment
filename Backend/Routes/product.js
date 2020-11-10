@@ -39,15 +39,17 @@ router.post('/', (req, res) => {
     productDesc,
     productStock,
     imageUrl,
+    productHotelName,
   } = req.body;
   const product_name = productName;
   const price = productPrice;
   const description = productDesc;
   const stock = productStock;
   const imageurl = imageUrl;
+  const hotel_name = productHotelName;
   con.query(
-    'INSERT INTO PRODUCTS (product_name,price,description,stock,imageurl) VALUES (?,?,?,?,?)',
-    [product_name, price, description, stock, imageurl],
+    'INSERT INTO PRODUCTS (product_name,price,description,stock,imageurl,hotel_name) VALUES (?,?,?,?,?,?)',
+    [product_name, price, description, stock, imageurl, hotel_name],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -71,14 +73,16 @@ router.put('/:id', (req, res) => {
     productDesc,
     productStock,
     imageUrl,
+    productHotelName,
   } = req.body;
   const product_name = productName;
   const price = productPrice;
   const description = productDesc;
   const stock = productStock;
   const imageurl = imageUrl;
+  const hotel_name = productHotelName;
   con.query(
-    `UPDATE PRODUCTS SET product_name='${product_name}',price=${price},description='${description}',stock=${stock},imageurl='${imageurl}' WHERE product_id=${id}`,
+    `UPDATE PRODUCTS SET product_name='${product_name}',price=${price},description='${description}',stock=${stock},imageurl='${imageurl}',hotel_name='${hotel_name}' WHERE product_id=${id}`,
     (err, result) => {
       if (err) {
         return res.json({
