@@ -1,0 +1,48 @@
+//   <div
+              //     className='card text-center'
+              //     style={{ backgroundColor: 'black' }}
+              //   >
+              //     <div className='overflow'>
+              //       <img
+              //         src={val.imageurl}
+              //         alt='card-image'
+              //         style={{ maxHeight: '100%', maxWidth: '100%' }}
+              //         className="mb-3 rounded"
+              //       />
+              //     </div>
+
+              //     <div
+              //       className='card-body text-white'
+              //       style={{ backgroundColor: '#394142' }}
+              //     >
+              //       <h4 className='card-title'>{val.product_name}</h4>
+              //       <p className='card-text text-secondary'>
+              //         {val.description}
+              //       </p>
+              //       <h4>Rs {val.price}</h4>
+              //       <button
+              //         className='btn btn-outline-success'
+              //         onClick={() => addToCart(val)}
+              //       >
+              //         Add to Cart
+              //       </button>
+              //       <button
+              //         className='btn btn-outline-danger'
+              //         onClick={() => {
+              //           deleteProduct(val.product_id);
+              //         }}
+              //       >
+              //         Delete Product
+              //       </button>
+              //       <button
+              //         className='btn btn-outline-warning'
+              //         onClick={() => {
+              //           localStorage.setItem('id', val.product_id);
+              //           window.location.pathname = '/updateProduct';
+              //         }}
+              //       >
+              //         Update Product
+              //       </button>
+              //     </div>
+              //   </div>
+              // </div>
