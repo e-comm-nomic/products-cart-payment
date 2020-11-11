@@ -54,7 +54,27 @@ router.delete('/', (req, res) => {
     });
   });
 });
-module.exports = router;
+
+//UPDATE A PRODUCT from cart
+
+router.put('/:id', (req, res) => {
+  let id = req.params.id;
+  let qty = req.body.quantity;
+  con.query(
+    `UPDATE CART set qty=? WHERE cart_id=?`,
+    [qty, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json({
+          success: 'success',
+        });
+      }
+    }
+  );
+});
+
 // DELETE A PRODUCT from cart
 router.delete('/:id', (req, res) => {
   let id = req.params.id;
